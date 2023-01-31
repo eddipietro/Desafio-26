@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat con socket.io</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+     
+      <main>
+        <div class=>
+          <form method="POST" action="/api/randoms" >
+            <h2 class="fw-bold mb-2 text-uppercase">
+                Números random generados junto a la cantidad de veces que salió cada uno. Esta ruta no será bloqueante porque se utiliza el <b>método fork</b>
+            </h2>
+
+            
+            <div class="form-group"  >
+              <input
+                type="number"
+                id="typeEmailX"
+                max="500000000"
+                name="cantBucle"
+                class="form-control form-control-lg"
+              />
+            </div class="">
+
+            <button class="btn btn-primary justify-content " type="submit">Generar</button>
+          </form>
+        </div>
+      </main>
+
+      
+    </div>
+  </body>
+</html>

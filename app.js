@@ -53,6 +53,50 @@ app.get('/health',(_req,res)=>{
     })
 })
 
+
+
+//Desafío 27 agregar info y numeros random
+
+
+const { fork } = require("child_process");
+
+
+app.get("/info", (_req, res) => {
+    res.status(200).json({
+     
+    directActual: process.cwd(),
+    idProcess: process.pid,
+    versionNode: process.version,
+    routeEjec: process.execPath,
+    opSys: process.platform,
+    memory: JSON.stringify(process.memoryUsage().rss, null, 2),
+  
+ 
+})
+    })
+  
+
+app.get("/api/randoms", (_req, res) => {
+  res.render("objectRandomIN");
+});
+
+app.post("/api/randoms", (req, res) => {
+  const { cantBucle } = req.body;
+  process.env.CANT_BUCLE = cantBucle;
+
+  const objectRandom = fork("./src/controller/getObjectRandom");
+  objectRandom.on("message", (dataRandom) => {
+    return res.send(dataRandom);
+  });
+});
+
+app.get("/objectRandomOut", (_req, res) => {
+  res.render("onjectRandomOUT");
+});
+
+
+
+//
 io.on('connection',async(socket)=>{
     console.info("nuevo cliente conectado")
 
